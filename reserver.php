@@ -7,8 +7,26 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destinations</title>
+    <style>
+        #nav {
+            color: white;
+            font-size: 50px;
+            font-family: 'Baloo Tamma 2', cursive;
+            width: 100%;
+            float: center;
+            margin-bottom: 15px;
+        }
+
+        body {
+            margin: 0px;
+            text-align: center;
+            background: rgba(66, 165, 140, 0.5);
+            color: grey;
+        }
+        </style>
 </head>
 <body>
+<navi id="nav">Muji Travels<br></navi>
 <form action='confirm.php' method='post'>
     <?php
     $from = $_POST["destination_from"];
