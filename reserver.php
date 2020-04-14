@@ -6,9 +6,52 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Destinations</title>
 </head>
 <body>
-    
+<form action='confirm.php' method='post'>
+    <?php
+    $from = $_POST["destination_from"];
+    $to = $_POST["destination_to"];
+
+    $root = 'root';
+    $password = '';
+    $db ='booking';
+    $con = mysqli_connect("localhost", $root, $password , $db) or die("No databse with that name");
+
+    $query1 = "SELECT * from Airports where CITY_NAME = '$from';";
+    if ($result1 = mysqli_query($con,$query1)){
+        if ((mysqli_num_rows($result1)<1)){
+            $_SESSION["find"]="not found";
+            header("Location: welcome.php");
+        }
+        else{
+            echo "From: <br>";
+            while ($row1 = mysqli_fetch_row($result1))
+            {
+                echo "<input type='radio' name= 'from' value =$row1[0] checked> $row1[3]<br>";
+            }
+        }   
+    }
+    ?>
+    <?php
+    $query2 = "SELECT * from Airports where CITY_NAME = '$to';";
+    if ($result2 = mysqli_query($con,$query2)){
+        if ((mysqli_num_rows($result2)<1)){
+            $_SESSION["find"]="not found";
+            header("Location: welcome.php");
+        }
+        else{
+            echo "TO: <br>";
+        while ($row2 = mysqli_fetch_row($result2))
+        {
+            echo "<input type='radio' name= 'to' value =$row2[0] checked> $row2[3]<br>";
+        }
+    }
+    }
+    ?>
+    <input type ="submit" value ="Reserve A Flight" id = "reserve" name = "reserve">
+    </form>
+
 </body>
 </html>

@@ -1,5 +1,15 @@
 <?php
 session_start();
+if (isset($_SESSION["find"])){
+    { 
+    echo "<script>
+    window.onload = function banana(){
+
+        window.alert('No Airports In that city');
+    };
+    </script>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +39,8 @@ session_start();
     echo "Welcome $f_name $l_name!!<br> Where would you like to book a flight today?";
     ?>
 </h5>
-<form id = "reserve" action= "reserve.php" method = "post">
+
+<form id = "reserve" action= "reserver.php" method = "post">
     <label for ="destination_from">Please enter the destination</label>
     <input type = "text" id = "destination_from" name = "destination_from">
     <br>
