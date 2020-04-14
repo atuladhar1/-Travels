@@ -33,7 +33,7 @@ if (isset($_SESSION["err"])){
         <h1>
             Sign up
         </h1>
-        <form id = "signup" action = "welcome.php" method = "post">
+        <form id = "signup" action = "signup.php" method = "post">
             <label for = "fname"> First Name</label>
             <input type = "text" id ="fname" name= "fname">
             <label for = "lname"> Last Name</label>

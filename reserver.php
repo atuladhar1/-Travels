@@ -50,6 +50,8 @@ session_start();
     }
     }
     ?>
+    <label for="date">Date</label>
+    <input type = "date"  name = "date" id= "date">
     <input type ="submit" value ="Reserve A Flight" id = "reserve" name = "reserve">
     </form>
 
