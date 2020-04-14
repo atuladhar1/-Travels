@@ -3,10 +3,18 @@ session_start();
 if (isset($_SESSION["err"])){
     echo "<script>
     window.onload = function banana(){
-
         window.alert('Wrong Username Or Password');
     };
     </script>";
+    $_SESSION["err"]= NAN;
+}
+if (isset($_SESSION["sin"])){
+    echo "<script>
+    window.onload = function banana(){
+        window.alert('Choose a unique username');
+    };
+    </script>";
+    $_SESSION["sin"]= NAN;
 }
 ?>
 <!DOCTYPE html>
@@ -22,9 +30,9 @@ if (isset($_SESSION["err"])){
         Login
     </h1>
     <form id = "login" action = "auth.php" method = "post">
-        <label for ="uname">Username </label>
+        <label for ="uname" required>Username </label>
         <input type ="text" id= "uname" name="uname">
-        <label for ="password">Password</label>
+        <label for ="password" required>Password</label>
         <input type ="password" id="password" name="password">
         <input type ="submit" value ="Sign In" id = "signin" name = "signin"> 
     </form>
@@ -38,8 +46,10 @@ if (isset($_SESSION["err"])){
             <input type = "text" id ="fname" name= "fname">
             <label for = "lname"> Last Name</label>
             <input type = "text" id = "lname" name= "lname">
-            <label for = "username"> Username </label>
-            <input type = "text" id = username name = "username">
+            <label for = "username" required> Username </label>
+            <input type = "text" id = "username" name = "username">
+            <label for ="password" required>Password</label>
+            <input type ="password" id ="password" name ="password">
             <label for = "street">Street Name</label>
             <input type = "text" id = "street" name = "street">
             <label for = "state">State</label>
