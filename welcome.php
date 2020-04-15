@@ -1,13 +1,16 @@
 <?php
 session_start();
-if (isset($_SESSION["find"])) { {
+if (isset($_SESSION["find"])) { 
+    if($_SESSION["find"]== "not found")
+    {  
         echo "<script>
-    window.onload = function banana(){
-
+        window.onload = function banana(){
         window.alert('No Airports In that city');
-    };
-    </script>";
-    }
+        };
+         </script>";
+        $_SESSION["find"] = '';
+        }
+    
 }
 ?>
 <!DOCTYPE html>
@@ -19,13 +22,11 @@ if (isset($_SESSION["find"])) { {
     <title>Welcome</title>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@700&display=swap" rel="stylesheet">
     <style>
-        #nav {
+        nav {
             color: white;
             font-size: 50px;
             font-family: 'Baloo Tamma 2', cursive;
-            width: 100%;
-            float: center;
-            margin-bottom: 15px;
+            background: black;
         }
 
         body {
@@ -57,7 +58,7 @@ if (isset($_SESSION["find"])) { {
 </head>
 
 <body>
-    <navi id="nav">Muji Travels<br></navi>
+    <nav>Muji Travels<br></nav>
         <h2>
 
             <?php
@@ -90,6 +91,7 @@ if (isset($_SESSION["find"])) { {
             <input type="submit" id="submit" name="submit">
         </form>
     </div>
+    <footer>This is project using PHP, mySQL, CSS and HTML.</footer>
 </body>
 
 </html>

@@ -8,25 +8,52 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destinations</title>
     <style>
-        #nav {
+       nav {
             color: white;
             font-size: 50px;
             font-family: 'Baloo Tamma 2', cursive;
-            width: 100%;
-            float: center;
-            margin-bottom: 15px;
+            background: black;
         }
-
         body {
             margin: 0px;
             text-align: center;
             background: rgba(66, 165, 140, 0.5);
-            color: grey;
+            color: #2c3e50;
+        }
+
+        form{
+            font-size: 20px;
+        }
+        form p{
+            font-size: 30px;
+        }
+
+        div{
+            text-align: left;
+            width:600px;
+            background-color: #2ecc71;
+            margin-left:auto;
+            margin-right:auto;
+            padding: 40px 10px;
+            border-radius: 30px;
+        }
+        #date{
+            text-align: center;
+        }
+        input[type=date]{
+            font-size: 20px;
+        }
+        input[type=submit]{
+        font-size: 20px;
+        border-radius: 30px;
+        margin-top: 30px;
+        padding: 10px;
         }
         </style>
 </head>
 <body>
-<navi id="nav">Muji Travels<br></navi>
+<nav>Muji Travels</nav>
+<div>
 <form action='confirm.php' method='post'>
     <?php
     $from = $_POST["destination_from"];
@@ -44,11 +71,13 @@ session_start();
             header("Location: welcome.php");
         }
         else{
-            echo "From: <br>";
+            echo "<p>From: </p>";
+            echo "<div class='options'>";
             while ($row1 = mysqli_fetch_row($result1))
             {
                 echo "<input type='radio' name= 'from' value =$row1[0] checked> $row1[3]<br>";
             }
+            echo"</div>";
         }   
     }
     ?>
@@ -60,18 +89,27 @@ session_start();
             header("Location: welcome.php");
         }
         else{
-            echo "TO: <br>";
+            echo "<p>To: </p>";
+            echo "<div class='options'>";
         while ($row2 = mysqli_fetch_row($result2))
         {
             echo "<input type='radio' name= 'to' value =$row2[0] checked> $row2[3]<br>";
         }
+        echo"</div>";
     }
     }
     ?>
+    <br>
+    <p id = "date">
     <label for="date">Date</label>
-    <input type = "date"  name = "date" id= "date">
+    <input type = "date"  name = "date" id= "date" required>
+    <br>
     <input type ="submit" value ="Reserve A Flight" id = "reserve" name = "reserve">
+    </p>
     </form>
 
+
+</div>
+<footer>This is project using PHP, mySQL, CSS and HTML.</footer>
 </body>
 </html>

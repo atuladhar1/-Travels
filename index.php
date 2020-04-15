@@ -1,20 +1,23 @@
 <?php
 session_start();
 if (isset($_SESSION["err"])){
-    echo "<script>
-    window.onload = function banana(){
-        window.alert('Wrong Username Or Password');
-    };
-    </script>";
-    $_SESSION["err"]= NAN;
+    if($_SESSION["err"]=="err"){
+        echo "<script>
+        window.onload = function banana(){
+            window.alert('Wrong Username Or Password');
+        };
+        </script>";
+        $_SESSION["err"]= "";
+    }
 }
 if (isset($_SESSION["sin"])){
-    echo "<script>
-    window.onload = function banana(){
-        window.alert('Choose a unique username');
-    };
-    </script>";
-    $_SESSION["sin"]= NAN;
+    if($_Session["sin"]=="Not unique Username"){
+        echo "<script>
+        window.onload = function banana(){
+            window.alert('Choose a unique username');
+        };
+        </script>";
+        $_SESSION["sin"]= "";}
 }
 ?>
 <!DOCTYPE html>
@@ -30,14 +33,12 @@ if (isset($_SESSION["sin"])){
 input[type=submit]{
     font-size: 20px;
 }
-#nav{
-    color: white;
-    font-size: 50px;
-    font-family: 'Baloo Tamma 2', cursive;
-    width: 100%;
-    float: center;
-    margin-bottom: 15px;
-}
+nav {
+            color: white;
+            font-size: 50px;
+            font-family: 'Baloo Tamma 2', cursive;
+            background: black;
+        }
 body{
     margin: 0px;
     text-align: center;
@@ -78,7 +79,7 @@ h1{
     padding: 50px 0;
 }
 </style>
-<navi id = "nav">Muji Travels</navi>
+<nav>Muji Travels</nav>
     <div id = "login">
     <h1>
         Login
@@ -119,6 +120,6 @@ h1{
             <input type ="submit" value ="Sign Up" id = "signin" name = "signin"> 
         </form>
     </div>
-   
+    <footer>This is project using PHP, mySQL, CSS and HTML.</footer>
 </body>
 </html>
