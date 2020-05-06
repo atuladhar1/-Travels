@@ -79,7 +79,7 @@ h1{
     padding: 50px 0;
 }
 </style>
-<nav>Muji Travels</nav>
+<nav>Travels</nav>
     <div id = "login">
     <h1>
         Login
