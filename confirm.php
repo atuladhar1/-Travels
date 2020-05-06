@@ -51,7 +51,7 @@ session_start();
         </style>
 </head>
 <body>
-<nav><a href ="welcome.php">Muji Travels</a></nav>
+<nav><a href ="welcome.php">Travels</a></nav>
 <h3>Flight Confirmed</h3>
 <div>
     <?php
