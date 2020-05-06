@@ -52,7 +52,7 @@ session_start();
         </style>
 </head>
 <body>
-<nav>Muji Travels</nav>
+<nav>Travels</nav>
 <div>
 <form action='confirm.php' method='post'>
     <?php
