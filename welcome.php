@@ -58,7 +58,7 @@ if (isset($_SESSION["find"])) {
 </head>
 
 <body>
-    <nav>Muji Travels<br></nav>
+    <nav>Travels<br></nav>
         <h2>
 
             <?php
